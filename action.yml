@@ -1,0 +1,14 @@
+name: build-node-module
+description: Build and test a Node.js module.
+
+runs:
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: make
+      - run: npm run -s test -- --reporter tap
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
