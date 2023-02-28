@@ -2,6 +2,7 @@ name: build-node-module
 description: Build and test a Node.js module.
 
 runs:
+    using: "composite"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
