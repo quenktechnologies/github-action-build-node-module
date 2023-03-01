@@ -8,11 +8,15 @@ runs:
       - uses: actions/setup-node@v3
         with:
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
+      - name: install dependencies
+        run: npm ci
         shell: bash
-      - run: npm run -s lint --if-present
+      - name: run linters 
+        run: npm run -s lint --if-present
         shell: bash
-      - run: npm run -s build
+      - name: build
+        run: npm run -s build
         shell: bash
-      - run: npm run -s test -- --reporter tap
+      - name: run tests
+        run: npm run -s test -- --reporter tap
         shell: bash
