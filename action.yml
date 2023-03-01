@@ -9,7 +9,8 @@ runs:
         with:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+        shell: bash
       - run: make
+        shell: bash
       - run: npm run -s test -- --reporter tap
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
