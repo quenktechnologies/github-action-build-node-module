@@ -10,7 +10,9 @@ runs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
         shell: bash
-      - run: make
+      - run: npm run -s lint --if-present
+        shell: bash
+      - run: npm run -s build
         shell: bash
       - run: npm run -s test -- --reporter tap
         shell: bash
