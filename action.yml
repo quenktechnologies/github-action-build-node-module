@@ -18,5 +18,5 @@ runs:
         run: npm run -s build
         shell: bash
       - name: run tests
-        run: npm run -s test -- --reporter tap
+        run: npm run -s test
         shell: bash
